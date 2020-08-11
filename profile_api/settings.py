@@ -26,7 +26,7 @@ SECRET_KEY = 'ps+*%d*roho9+(ewsze!ear=q!9h7q4@$02)z1gd94qgw8a8_d'
 DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
 ALLOWED_HOSTS = [
-    'ec2-13-126-95-132.ap-south-1.compute.amazonaws.com', '127.0.0.1'
+    "*"
 ]
 
 
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'profile_api.urls'
@@ -110,6 +111,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+]
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
